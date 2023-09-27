@@ -1,0 +1,584 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>KYC</title>
+  </head>
+  <body>
+    <div class="p-3 bg-[#fcfcfc] h-full">
+      <div class="border-[1px] border-gray-300 rounded bg-white">
+        <div
+          class="flex items-center justify-center text-center text-2xl font-bold border-b-[1px] border-gray-300 h-[20%]"
+        >
+          <p>XYZ Bank</p>
+        </div>
+        <div
+          class="bg-[#f3f3f3] flex items-center justify-center text-center font-semibold border-b-[1px] border-gray-300 h-[20%]"
+        >
+          <div class="bg-white border-2 p-4 rounded">
+            <p>Know Your Customer (KYC) Form for Individual Account Opening</p>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-center border-b-[1px] border-gray-300 w-full p-5"
+        >
+          <div class="border-[1px] border-gray-300 rounded p-5 w-[80%]">
+            <div class="mb-2">
+              <div class="mb-2">
+                <label
+                  for="account"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Account Number</label
+                >
+                <input
+                  type="number"
+                  id="account"
+                  name="account"
+                  class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your account number"
+                  required
+                />
+              </div>
+
+              <button
+                id="clearAccount"
+                class="bg-red-600 text-white p-1 rounded hover:bg-red-700 focus:outline-none"
+              >
+                Clear
+              </button>
+            </div>
+
+            <div class="flex justify-between mb-2">
+              <div class="w-[30%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="w-[30%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Mobile Number</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your mobile number"
+                  required
+                />
+              </div>
+              <div class="w-[30%]">
+                <label for="dob" class="block text-gray-700 font-medium"
+                  >Date of Birth</label
+                >
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <div class="mb-2">
+                <label
+                  for="identificationType"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Select Identification Type</label
+                >
+                <select
+                  id="identificationType"
+                  name="identificationType"
+                  class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                  required
+                >
+                  <option value="Citizenship">Citizenship</option>
+                  <option value="Passport">Passport</option>
+                  <option value="OtherIdentification">
+                    Other Identification
+                  </option>
+                </select>
+              </div>
+
+              <!-- Citizenship Fields -->
+              <div
+                id="citizenshipFields"
+                class="mb-2 flex hidden justify-between"
+              >
+                <div class="w-[30%]">
+                  <label
+                    for="citizenshipNumber"
+                    class="block text-gray-700 font-medium"
+                    >Citizenship Number</label
+                  >
+                  <input
+                    type="text"
+                    id="citizenshipNumber"
+                    name="citizenshipNumber"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+
+                <div class="w-[30%]">
+                  <label for="issuedBy" class="block text-gray-700 font-medium"
+                    >Issued By</label
+                  >
+                  <input
+                    type="text"
+                    id="issuedBy"
+                    name="issuedBy"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+
+                <div class="w-[30%]">
+                  <label
+                    for="issuedDate"
+                    class="block text-gray-700 font-medium"
+                    >Issued Date</label
+                  >
+                  <input
+                    type="date"
+                    id="issuedDate"
+                    name="issuedDate"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Passport Fields -->
+              <div id="passportFields" class="mb-2 flex justify-between hidden">
+                <div class="w-[30%]">
+                  <label
+                    for="passportNumber"
+                    class="block text-gray-700 font-medium"
+                    >Passport Number</label
+                  >
+                  <input
+                    type="text"
+                    id="passportNumber"
+                    name="passportNumber"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div class="w-[30%]">
+                  <label
+                    for="passportIssuedBy"
+                    class="block text-gray-700 font-medium"
+                    >Issued By</label
+                  >
+                  <input
+                    type="text"
+                    id="passportIssuedBy"
+                    name="passportIssuedBy"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div class="w-[30%]">
+                  <label
+                    for="passportIssuedDate"
+                    class="block text-gray-700 font-medium"
+                    >Issued Date</label
+                  >
+                  <input
+                    type="date"
+                    id="passportIssuedDate"
+                    name="passportIssuedDate"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Other -->
+              <div
+                id="otherIdentificationFields"
+                class="mb-2 flex justify-between hidden"
+              >
+                <div class="w-[30%]">
+                  <label
+                    for="idType"
+                    class="block mb-2 text-gray-700 font-medium"
+                    >Type of Identification</label
+                  >
+                  <input
+                    type="text"
+                    id="idType"
+                    name="idType"
+                    placeholder="Enter your type of Identification"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+
+                <div class="w-[30%]">
+                  <label for="idNumber" class="block text-gray-700 font-medium"
+                    >ID Number</label
+                  >
+                  <input
+                    type="text"
+                    id="idNumber"
+                    name="idNumber"
+                    placeholder="Enter your Id number"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+
+                <div class="w-[30%]">
+                  <label
+                    for="issuingOffice"
+                    class="block text-gray-700 font-medium"
+                    >Issuing Office</label
+                  >
+                  <input
+                    type="text"
+                    id="issuingOffice"
+                    name="issuingOffice"
+                    placeholder="Enter your issuing office"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!--Permament Address -->
+            <div class="mb-2">
+              <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                >Permanent Address</label
+              >
+              <div class="flex justify-between">
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="District"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Municipality/VDC"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Village/Tole"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="House No."
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Ward No."
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Current/Residential -->
+            <div class="mb-2">
+              <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                >Current/Residential</label
+              >
+              <div class="flex justify-between">
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="District"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Municipality/VDC"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Village/Tole"
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="House No."
+                    required
+                  />
+                </div>
+                <div class="w-[18%]">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                    placeholder="Ward No."
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <!-- Father -->
+            <!-- Grandfather -->
+            <!-- Spouse -->
+            <div class="flex justify-between mb-2">
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Education</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Optional"
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Father</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your father's name"
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Grandfather</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your grandfather name"
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Spouse</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Optional"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Occupation Institution Designation Annual Transaction -->
+            <div class="flex justify-between mb-2">
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Occupation/Business</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter the name of occupation"
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Institution/Firm</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="Enter your Name and address/Institution/Firm
+                  "
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Designation</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="w-[20%]">
+                <label for="mobile" class="block text-gray-700 font-medium mb-2"
+                  >Projected Annual Transaction</label
+                >
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                  placeholder="NPR"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="mb-2 flex justify-between">
+              <div class="w-[45%]">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Bank account with other FI :</label
+                >
+                <div
+                  class="mt-1 relative px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                >
+                  <select
+                    class="form-select block w-full sm:text-sm sm:leading-5 text-[14px]"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="w-[45%]">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Punishment against any criminal activities in the past:
+                </label>
+                <div
+                  class="mt-1 relative px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                >
+                  <select
+                    class="form-select block w-full sm:text-sm sm:leading-5 text-[14px]"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const accountInput = document.getElementById("account");
+      const clearAccountButton = document.getElementById("clearAccount");
+
+      clearAccountButton.addEventListener("click", function () {
+        accountInput.value = "";
+      });
+
+      const identificationTypeSelect =
+        document.getElementById("identificationType");
+      const citizenshipFields = document.getElementById("citizenshipFields");
+      const passportFields = document.getElementById("passportFields");
+      const otherIdentificationFields = document.getElementById(
+        "otherIdentificationFields"
+      );
+
+      identificationTypeSelect.addEventListener("change", function () {
+        switch (identificationTypeSelect.value) {
+          case "Citizenship":
+            citizenshipFields.style.display = "flex";
+
+            passportFields.style.display = "none";
+            otherIdentificationFields.style.display = "none";
+            break;
+          case "Passport":
+            citizenshipFields.style.display = "none";
+            passportFields.style.display = "flex";
+
+            otherIdentificationFields.style.display = "none";
+            break;
+          case "OtherIdentification":
+            citizenshipFields.style.display = "none";
+            passportFields.style.display = "none";
+            otherIdentificationFields.style.display = "flex";
+            break;
+          default:
+            citizenshipFields.style.display = "none";
+            passportFields.style.display = "none";
+            otherIdentificationFields.style.display = "none";
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
